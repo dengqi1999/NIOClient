@@ -78,9 +78,6 @@ public class Client {
         mine.setPassword(password);
     }
     public void logout() {
-        if (!isLogin) {
-            return;
-        }
         System.out.println("客户端发送下线请求");
         Msg msg=new Msg();
         msg.setCode(FunctionType.QUIT.getCode());
@@ -159,7 +156,7 @@ public class Client {
                             buf.clear();
                             while ((size = clientChannel.read(buf)) > 0) {
                                 buf.flip();
-                                infor.append(new String(buf.array(), 0, size));
+                                infor.append(new String(buf.array(), 0, size,"UTF-8"));
                                 buf.clear();
                             }
                             System.out.println(infor.toString());

@@ -23,6 +23,4 @@ public class CellRender extends JLabel implements ListCellRenderer {
 		setFont(font);
         return this;
 	}
- 
-    
 }
