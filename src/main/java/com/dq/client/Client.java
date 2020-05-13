@@ -220,12 +220,12 @@ public class Client {
                                     System.exit(0);
                                 }
                             }else if(object.getInteger("code")==FunctionType.QUIT.getCode()){
-                                if(chart.talkUser.getId()==object.getInteger("fromId")){
+                                if(chart.talkUser!=null&&chart.talkUser.getId()==object.getInteger("fromId")){
                                     chart.listModel.clear();
                                     chart.talkUser=null;
                                 }
                                 for(int i=0;i<chart.listModelUser.size();i++){
-                                    if(chart.listModelUser.getElementAt(i).getId()==object.getInteger("fromId")){
+                                    if(!chart.listModelUser.getElementAt(i).isGroup&&chart.listModelUser.getElementAt(i).getId()==object.getInteger("fromId")){
                                         chart.listModelUser.remove(i);
                                         break;
                                     }
